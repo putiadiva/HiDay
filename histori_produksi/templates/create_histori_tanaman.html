@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+        .alert {
+            background: #ffdb9b;
+            padding: 20px 40px;
+            min-width: 420px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            border-left: 8px solid #ffa502;
+        }
+        .alert.warning{
+            background-color: #FF9800;
+        }
+        .closebtn{
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .closebtn:hover{
+            color: black;
+        }
+    </style>
+
+    <title>Produksi Tanaman</title>
+    
+</head>
+<body>
+    {% include "main/navbar_pengguna.html" %}
+    <h1>FORM PRODUKSI TANAMAN</h1>
+
+    {% if state == 'kurang' %}
+  <div class="alert warning">
+      <span class="closebtn">&times;</span>
+      Anda tidak memiliki bibit yang cukup, silahkan membeli bibit terlebih dahulu
+  </div>
+  {% endif %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        <label for="id_To">Bibit Tanaman:</label>
+        <select name = "jenis_bibit">
+            {% for i in data_bibit %}
+           <option>{{i.nama}}</option>
+           {% endfor%}
+        </select>
+        <br>
+        <label for="id_To">Jumlah:</label>
+        <input type="number" name="jumlah" id="jumlah" required onChange="multiplyBy()" >
+        <br>
+        <label for="id_To">XP:</label>
+        <span id="xp" ></span>
+        <br>
+        <input type="submit" value="Produksi">
+     </form>
+
+    <script>
+        function multiplyBy()
+        {
+                jumlah = document.getElementById("jumlah").value;
+                document.getElementById("xp").innerHTML = 5 * jumlah;
+        }
+        var close=document.getElementsByClassName("closebtn");
+        var i;
+
+        for (i = 0; i < close.length; i++){
+            close[i].onclick = function(){
+                var div = this.parentElement;
+                div.style.opacity = "0";
+                setTimeout(function(){
+                    div.style.display = "none";
+                }, 600);
+            }
+        }
+    </script>
+</body>
+</html>

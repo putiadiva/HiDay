@@ -1,0 +1,83 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Pesanan</title>
+</head>
+<body>
+    {% include "main/navbar_admin.html" %}
+    <div>
+        <form action="" method="post">
+            {% csrf_token %}
+
+            <label for="id_pesanan">ID Pesanan</label><br>
+            <input type="text" id="id_pesanan" name="id_pesanan"><br>
+
+            <label for="nama_pesanan">Nama Pesanan</label><br>
+            <input type="text" id="nama_pesanan" name="nama_pesanan"><br>
+
+            <label for="jenis_pesanan">Jenis Pesanan</label><br>
+            <input type="text" id="jenis_pesanan" nama="jenis_pesanan"><br>
+
+            <label for="details">Detail Pesanan</label><br>
+            <p>Pilih item dari pilihan di bawah ini</p>
+            {% for p in pilihan %}
+            <span>   {{ p.nama }}   </span>
+            {% endfor %}
+            <table id="tbl" id="details" name="details">
+                <tr>
+                    <th>Nama Produk</th>
+                    <th>Jumlah Produksi</th>
+                    <th><button onclick="addRow()">[ + ]</button></th>
+                </tr>
+                <tr name="item_detail">
+                    <td>
+                        <label for="item1"></label><br>
+                        <input type="text" id="item1">
+                    </td>
+                    <td>
+                        <label for="item1_jumlah"></label>
+                        <input type="text" id="item1_jumlah">
+                    </td>
+                    <td>
+                        <button onclick="deleteRow()">
+                            [ x ]
+                        </button>
+                    </td>
+                </tr>
+            </table>
+
+            <input type="submit" value="Buat">
+        </form>
+    </div>
+    <script>
+        function addRow() {
+            console.log('ok');
+            table = document.getElementById("tbl").innerHTML;
+            table += `
+                <select name="" id="">
+                    <option value="aaa">aaa</option>
+                    <option value="bbb">bbb</option>
+                    <option value="ccc">ccc</option>
+                </select>
+            `;
+        }
+
+        function deleteRow() {
+            ;
+        }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var x = $('#details').val;
+            var y = $('#details').html;
+            var z = $('#details').text;
+            console.log(x);
+            console.log(y);
+            console.log(z);
+        })
+    </script>
+</body>
+</html>

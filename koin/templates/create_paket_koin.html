@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buat Paket Koin</title>
+</head>
+<body>
+  {% include "main/navbar_admin.html" %}
+  <h1>FORM BUAT PAKET KOIN</h1>
+    <div class="container">
+        <form id="create_paket-koin" action="" method="POST">
+          {% csrf_token %}
+          <div id="form-input">
+            <label for="id_To">Jumlah Koin:</label>
+            <br>
+            <input type="number" name="jumlah" required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi data terlebih dahulu')" oninput="this.setCustomValidity('')">
+            <br><br>
+            <label for="id_From">Harga:</label>
+            <br>
+            <input type="number" name="harga" required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi data terlebih dahulu')" oninput="this.setCustomValidity('')">
+            <br><br>
+            <input type="submit" value="Buat">
+          </div>
+        </form>
+      </div>
+  
+</body>
+</html>

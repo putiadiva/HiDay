@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  {% load static %}
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    {% if request.session.peran == 'pengguna' %}
+    {% include "main/navbar_pengguna.html" %}
+   
+    <p>EMAIL : <d>{{email}}</d></p>
+    <p>NAMA AREA PERTANIAN : <d>{{nama_area_pertanian}}</d></p>
+    <p>XP : <d>{{xp}}</d></p>
+    <p>KOIN : <d>{{koin}}</d></p>
+    <p>LEVEL : <d>{{level}}</d></p>
+
+    {% elif request.session.peran == 'admin' %}
+    {% include "main/navbar_admin.html" %}
+
+   <p>EMAIL : <d>{{email}}</d></p>
+
+    {% endif %}
+    
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isi Lumbung</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>No.</th>
+            <th>Email</th>
+            <th>Level</th>
+            <th>Kapasitas Maksimal</th>
+            <th>Total</th>
+        </tr>
+        {% for i in isi %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ i.email }}</td>
+            <td>{{ i.level }}</td>
+            <td>{{ i.kapasitas_maksimal }}</td>
+            <td>{{ i.total }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

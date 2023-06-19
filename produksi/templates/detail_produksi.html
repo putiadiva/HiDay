@@ -1,0 +1,20 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Produksi</title>
+</head>
+<body>
+  {% include "main/navbar_pengguna.html" %}
+  <h1>Detail Produksi</h1>
+  <div>
+    {% for p in produksi %}
+    <a>Nama Produk Makanan:</a><p>{{ p.nama_makanan }}</p>
+    <a>Alat Produksi:</a> <p>{{ p.nama_alat }}</p>
+    <a>Durasi Produksi (dalam menit): </a><p>{{ p.durasi }}</p>
+    <a>Jumlah Produk yang Dihasilkan:</a><p>{{ p.jumlah_unit_hasil }}</p>
+    {% endfor %}
+  </div>
+</body>
+</html>

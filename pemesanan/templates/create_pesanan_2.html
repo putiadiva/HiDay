@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Pesanan</title>
+</head>
+<body>
+    {% include "main/navbar_admin.html" %}
+    <div>
+        <form action="" method="post">
+            {% csrf_token %}
+
+            <label for="id_pesanan">ID Pesanan</label><br>
+            <input type="text" id="id_pesanan" name="id_pesanan"><br>
+
+            <label for="nama_pesanan">Nama Pesanan</label><br>
+            <input type="text" id="nama_pesanan" name="nama_pesanan"><br>
+
+            <label for="jenis_pesanan">Jenis Pesanan</label><br>
+            <input type="text" id="jenis_pesanan" name="jenis_pesanan"><br>
+
+            <label>Detail Pesanan</label><br>
+            <p>Pilih item dari pilihan di bawah ini</p>
+            {% for p in pilihan %}
+            <span>   {{ p.nama }}   </span>
+            {% endfor %}
+            <br>
+
+            <label for="nama_detail">Nama Produk</label><br>
+            <input type="text" id="nama_detail" name="nama_detail"><br>
+
+            <label for="jumlah_detail">Jumlah Produksi</label><br>
+            <input type="text" id="jumlah_detail" name="jumlah_detail"><br>
+
+            <input type="submit" value="Buat">
+        </form>
+    </div>
+</body>
+</html>

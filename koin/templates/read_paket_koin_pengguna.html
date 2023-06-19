@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>List Paket Koin</title>
+  </head>
+  <body>
+    {% include "main/navbar_pengguna.html" %}
+    <h1>LIST PAKET KOIN</h1>
+
+    <table border="1px">
+      <tr>
+        <th>Jumlah Koin</th>
+        <th>Harga</th>
+        <th>Action</th>
+      </tr>
+      
+
+    {% for pk in paket %}
+        <tr>
+          <td>{{ pk.jumlah_koin }}</td>
+          <td>{{ pk.harga }}</td>
+          <td><a href={% url 'koin:beli_paket' jumlah=pk.jumlah_koin harga=pk.harga %}> Beli </td>
+        </tr>
+    {% endfor %}
+
+    </table>
+  </body>
+</html>

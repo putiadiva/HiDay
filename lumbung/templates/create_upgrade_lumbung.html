@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      .alert {
+          background: #ffdb9b;
+          padding: 20px 40px;
+          min-width: 420px;
+          position: absolute;
+          right: 0;
+          top: 0;
+          border-left: 8px solid #ffa502;
+      }
+      .alert.warning{
+          background-color: #FF9800;
+      }
+      .closebtn{
+          margin-left: 15px;
+          color: white;
+          font-weight: bold;
+          float: right;
+          font-size: 22px;
+          line-height: 20px;
+          cursor: pointer;
+          transition: 0.3s;
+      }
+      .closebtn:hover{
+          color: black;
+      }
+  </style>
+
+    <title>Upgrade Lumbung</title>
+</head>
+<body>
+  {% include "main/navbar_pengguna.html" %}
+  <h1>UPGRADE LUMBUNG</h1>
+
+  {% if state == 'kurang' %}
+  <div class="alert warning">
+      <span class="closebtn">&times;</span>
+     Koin yang dimiliki kurang, silakan cari koin terlebih dahulu
+  </div>
+  {% endif %}
+
+    <div class="container">
+        <form id="create_paket-koin" action="" method="POST">
+          {% csrf_token %}
+          {% for i in isi %}
+          <div id="form-input">
+            <label>Level Lumbung:</label>
+            <p>{{ i.level }} --> {{ i.level|add:"1" }}</p>
+            <br>
+            <label>Kapasitas Lumbung:</label>
+            <p>{{ i.kapasitas_maksimal }} --> {{ i.kapasitas_maksimal|add:"50" }}</p>
+            <br>
+            <label>Biaya Upgrade: 200</label>
+            <br>
+            <input type="submit" value="Upgrade">
+          </div>
+          {% endfor %}
+        </form>
+      </div>
+      <script>
+        var close=document.getElementsByClassName("closebtn");
+        var i;
+
+        for (i = 0; i < close.length; i++){
+            close[i].onclick = function(){
+                var div = this.parentElement;
+                div.style.opacity = "0";
+                setTimeout(function(){
+                    div.style.display = "none";
+                }, 600);
+            }
+        }
+    </script>
+
+</body>
+</html>

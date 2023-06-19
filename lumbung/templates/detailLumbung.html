@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Detail Lumbung</title>
+  </head>
+  <body>
+    {% if request.session.peran == 'admin' %}
+        {% include "main/navbar_admin.html" %}
+    {% endif %}
+
+    {% if request.session.peran == 'pengguna' %}
+        {% include "main/navbar_pengguna.html" %}
+    {% endif %}
+
+    {% if request.session.peran == 'pengguna' %}
+    <p>Level: {{level}} </p>
+    <p>Kapasitas: {{total}}/{{kapasitas_maksimal}}</p>
+    {% endif %}
+
+
+    <div class="mt-4"></div>
+    <h3 class="text-center">Produk Hasil Panen</h3>
+    <table class="table">
+        <thead>
+            <tr>
+              <th scope="col">No</th>
+              {% if request.session.peran == 'admin' %}
+              <th scope="col">Email Pemilik Lumbung</th>
+              {% endif %}
+
+              <th scope="col">ID Produk</th>
+              <th scope="col">Nama Produk</th>
+              <th scope="col">Harga Jual</th>
+              <th scope="col">Sifat Produk</th>
+              <th scope="col">Jumlah Produk</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+          {% for f in panen %}
+            <tr>
+              <td>{{ forloop.counter }}</td>
+              {% if request.session.peran == 'admin' %}
+              <td>{{ f.email}}</td>
+              {% endif %}
+
+              <td>{{ f.id_produk}}</td>
+              <td>{{ f.nama}}</td>
+              <td>{{ f.harga_jual}}</td>
+              <td>{{ f.sifat_produk}}</td>
+              <td>{{ f.jumlah}}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+    </table>
+
+    <h3 class="text-center">Produk Hewan</h3>
+    <table class="table">
+        <thead>
+            <tr>
+              <th scope="col">No</th>
+              {% if request.session.peran == 'admin' %}
+              <th scope="col">Email Pemilik Lumbung</th>
+              {% endif %}
+
+              <th scope="col">ID Produk</th>
+              <th scope="col">Nama Produk</th>
+              <th scope="col">Harga Jual</th>
+              <th scope="col">Sifat Produk</th>
+              <th scope="col">Jumlah Produk</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+          {% for f in hewan %}
+            <tr>
+              <td>{{ forloop.counter }}</td>
+              {% if request.session.peran == 'admin' %}
+              <td>{{ f.email}}</td>
+              {% endif %}
+
+              <td>{{ f.id_produk}}</td>
+              <td>{{ f.nama}}</td>
+              <td>{{ f.harga_jual}}</td>
+              <td>{{ f.sifat_produk}}</td>
+              <td>{{ f.jumlah}}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+    </table>
+
+    <h3 class="text-center">Produk Makanan</h3>
+    <table class="table">
+        <thead>
+            <tr>
+              <th scope="col">No</th>
+              {% if request.session.peran == 'admin' %}
+              <th scope="col">Email Pemilik Lumbung</th>
+              {% endif %}
+
+              <th scope="col">ID Produk</th>
+              <th scope="col">Nama Produk</th>
+              <th scope="col">Harga Jual</th>
+              <th scope="col">Sifat Produk</th>
+              <th scope="col">Jumlah Produk</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+          {% for f in makanan %}
+            <tr>
+              <td>{{ forloop.counter }}</td>
+              {% if request.session.peran == 'admin' %}
+              <td>{{ f.email}}</td>
+              {% endif %}
+
+              <td>{{ f.id_produk}}</td>
+              <td>{{ f.nama}}</td>
+              <td>{{ f.harga_jual}}</td>
+              <td>{{ f.sifat_produk}}</td>
+              <td>{{ f.jumlah}}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesanan</title>
+</head>
+<body>
+    <h1>Admin, Read</h1>
+    <table>
+        <tr>
+            <th>No.</th>
+            <th>ID Pesanan</th>
+            <th>Jenis Pesanan</th>
+            <th>Nama Pesanan</th>
+            <th>Total Koin</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+        {% for p in pesanan %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ p.id }}</td>
+            <td>{{ p.jenis }}</td>
+            <td>{{ p.nama }}</td>
+            <td>{{ p.total }}</td>
+            <td>{{ p.status }}</td>
+            <td>
+                <a href="{{p.id}}/detail-pesanan/">Detail</a>
+                <a href="{{p.id}}/update-pesanan/">Update</a>
+                <a href="{{p.id}}/delete-pesanan/">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

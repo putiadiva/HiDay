@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histori Hewan</title>
+</head>
+<body>
+    {% include "main/navbar_admin.html" %}
+    <h1>Histori hewan</h1>
+    <h2>Admin - Read</h2>
+
+    <table>
+        <tr>
+            <th>No</th>
+            <th>Email Pengguna</th>
+            <th>Waktu Awal</th>
+            <th>Waktu Selesai</th>
+            <th>Jumlah</th>
+            <th>XP</th>
+            <th>Hewan</th>
+        </tr>
+        {% for hist in histori %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ hist.email }}</td>
+            <td>{{ hist.waktu_awal }}</td>
+            <td>{{ hist.waktu_selesai }}</td>
+            <td>{{ hist.jumlah }}</td>
+            <td>{{ hist.xp }}</td>
+            <td>{{ hist.nama }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

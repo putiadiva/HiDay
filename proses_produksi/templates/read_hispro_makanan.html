@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>List Produk</title>
+  </head>
+  <body>
+    {% if request.session.peran == 'pengguna' %}
+    {% include "main/navbar_pengguna.html" %}
+    <table border="1px">
+      <tr>
+        <th>No.</th>
+        <th>Waktu Awal</th>
+        <th>Waktu Selesai</th>
+        <th>Jumlah</th>
+        <th>XP</th>
+        <th>Produk Makanan</th>
+        <th>Alat Produksi</th>
+      </tr>
+      
+
+    {% for p in hprm %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ p.waktu_awal }}</td>
+            <td>{{ p.waktu_selesai }}</td>
+            <td>{{ p.jumlah }}</td>
+            <td>{{ p.xp }}</td>
+            <td>{{ p.makan }}</td>
+            <td>{{ p.nama }}</td>
+        </tr>
+    {% endfor %}
+
+    {% elif request.session.peran == 'admin' %}
+    {% include "main/navbar_admin.html" %}
+
+    <table border="1px">
+        <tr>
+            <th>No.</th>
+            <th>Email Pengguna</th>
+            <th>Waktu Awal</th>
+            <th>Waktu Selesai</th>
+            <th>Jumlah</th>
+            <th>XP</th>
+            <th>Produk Makanan</th>
+            <th>Alat Produksi</th>
+          </tr>
+      
+
+    {% for p in hprm %}
+        <tr>
+          <td>{{ forloop.counter }}</td>
+          <td>{{ p.email}}</td>
+          <td>{{ p.waktu_awal }}</td>
+          <td>{{ p.waktu_selesai }}</td>
+          <td>{{ p.jumlah }}</td>
+          <td>{{ p.xp }}</td>
+          <td>{{ p.nama }}</td>
+          <td>{{ p.nama }}</td>
+        </tr>
+    {% endfor %}
+
+    {% endif %}
+
+
+    </table>
+  </body>
+</html>

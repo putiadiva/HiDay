@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Histori Hewan</title>
+</head>
+<body>
+    {% include "main/navbar_pengguna.html" %}
+    </div>
+    <div>
+        <form action="" method="post">
+            {% csrf_token %}
+            <label for="id_hewan">ID Hewan: </label><br>
+            <select name="id_hewan" id="id_hewan">
+                {% for id in options %}
+                <option>{{ id.id_aset }}</option>
+                {% endfor %}
+            </select><br>
+
+            <label for="jumlah">Jumlah: </label><br>
+            <input name="jumlah" type="text" id="jumlah" required onChange="multiplyByFive()"><br>
+
+            <label for="xp">XP: </label><br>
+            <span id="xp"></span><br>
+
+            <input type="submit" value="Produksi">
+        </form>
+    </div>
+    <script>
+        function multiplyByFive()
+        {
+                jumlah = document.getElementById("jumlah").value;
+                document.getElementById("xp").innerHTML = 5 * jumlah;
+        }
+    </script>
+</body>
+</html>

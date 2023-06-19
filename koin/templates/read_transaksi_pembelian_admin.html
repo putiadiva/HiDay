@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>List Transaksi Pembelian Koin</title>
+  </head>
+  <body>
+    {% include "main/navbar_admin.html" %}
+    <h1>LIST TRANSAKSI PAKET KOIN</h1>
+
+    <table border="1px">
+      <tr>
+        <th>Waktu</th>
+        <th>Jumlah</th>
+        <th>Cara Pembayaran</th>
+        <th>Paket Koin</th>
+        <th>Total Biaya</th>
+        <th>Email</th>
+      </tr>
+      
+
+    {% for tp in transaksi %}
+        <tr>
+            <td>{{ tp.email }}</td>
+          <td>{{ tp.waktu }}</td>
+          <td>{{ tp.jumlah }}</td>
+          <td>{{ tp.cara_pembayaran }}</td>
+          <td>{{ tp.paket_koin }}</td>
+          <td>{{ tp.total_biaya }}</td>
+        </tr>
+    {% endfor %}
+
+    </table>
+  </body>
+</html>

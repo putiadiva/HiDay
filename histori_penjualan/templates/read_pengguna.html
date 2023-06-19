@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histori Penjualan</title>
+</head>
+<body>
+    {% include "main/navbar_pengguna.html" %}
+    <h1>Pengguna - Read</h1>
+
+    <table>
+        <tr>
+            <th>No.</th>
+            <th>Email Pengguna</th>
+            <th>Waktu Penjualan</th>
+            <th>Id Pesanan</th>
+            <th>Koin Diperoleh</th>
+            <th>XP Diperoleh</th>
+            <th>Action</th>
+        </tr>
+        {% for p in penjualan %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ p.email }}</td>
+            <td>{{ p.waktu_penjualan }}</td>
+            <td>{{ p.koin }}</td>
+            <td>{{ p.xp }}</td>
+            <td>{{ p.id_pesanan }}</td>
+            <td>
+                <a href="#">Detail</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

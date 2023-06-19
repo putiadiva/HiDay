@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>List Transaksi Upgrade Lumbung</title>
+  </head>
+  <body>
+    {% include "main/navbar_admin.html" %}
+    <h1>LIST TRANSAKSI UPGRADE LUMBUNG</h1>
+
+    <table border="1px">
+      <tr>
+        <th>Email Pengguna</th>
+        <th>Waktu Upgrade</th>
+      </tr>
+      
+
+    {% for tp in transaksi %}
+        <tr>
+            <td>{{ tp.email }}</td>
+          <td>{{ tp.waktu }}</td>
+        </tr>
+    {% endfor %}
+
+    </table>
+  </body>
+</html>

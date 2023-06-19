@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Pesanan</title>
+</head>
+<body>
+    {% include "main/navbar_admin.html" %}
+    <div>
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            <label for="id_pesanan">ID Pesanan</label><br>
+            <input type="text" name="id_pesanan" value={{ pesanan.id }} disabled><br>
+
+            <label for="nama_pesanan">Nama Pesanan</label><br>
+            <input type="text" name="nama_pesanan" value={{ pesanan.nama }}><br>
+
+            <label for="jenis_pesanan">Jenis Pesanan</label><br>
+            <input type="text" name="jenis_pesanan" value={{ pesanan.jenis }}><br>
+
+            <label for="status_pesanan">Status Pesanan</label><br>
+            <input type="text" name="status_pesanan" value={{ pesanan.status }}><br>
+
+            <label for="details">Detail Pesanan</label><br>
+
+            <input type="submit" value="Simpan">
+        </form>
+    </div>
+</body>
+</html>

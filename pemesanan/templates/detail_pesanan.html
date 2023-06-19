@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Pesanan</title>
+</head>
+<body>
+    {% include "main/navbar_pengguna.html" %}
+    <div>
+        {% for d in detail_pesanan %}
+            {% if forloop.counter == 1 %}
+                <span>ID Pesanan : </span><span>{{ d.id }}</span><br>
+                <span>Nama Pesanan : </span><span>{{ d.nama }}</span><br>
+                <span>Jenis Pesanan : </span><span>{{ d.jenis }}</span><br>
+                <span>Detail Pesanan : </span><br>
+            {% endif %}
+            <table>
+                <tr>
+                    <th>Nama Produksi</th>
+                    <th>Jumlah Produksi</th>
+                    <th>Subtotal</th>
+                </tr>
+                <tr>
+                    <td>{{ d.id_produk }}</td>
+                    <td>{{ d.jumlah }}</td>
+                    <td>{{ d.subtotal }}</td>
+                </tr>
+            </table>
+        {% endfor %}
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Ambil">
+        </form>
+    </div>
+    
+</body>
+</html>

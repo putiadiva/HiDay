@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>List Paket Koin</title>
+  </head>
+  <body>
+    {% include "main/navbar_admin.html" %}
+    <h1>LIST PAKET KOIN</h1>
+
+    <table border="1px">
+      <tr>
+        <th>Jumlah Koin</th>
+        <th>Harga</th>
+        <th>Action</th>
+      </tr>
+      
+
+    {% for pk in paket_non_delete %}
+        <tr>
+          <td>{{ pk.jumlah_koin }}</td>
+          <td>{{ pk.harga }}</td>
+          <td><a href={% url 'koin:update_paket' jumlah=pk.jumlah_koin harga=pk.harga %}>Update</a></td>
+        </tr>
+    {% endfor %}
+    {% for pk in paket_delete %}
+        <tr>
+          <td>{{ pk.jumlah_koin }}</td>
+          <td>{{ pk.harga }}</td>
+          <td><a href={% url 'koin:update_paket' jumlah=pk.jumlah_koin harga=pk.harga %}>Update</a><a href={% url 'koin:delete_paket' jumlah=pk.jumlah_koin%}> Delete</a></td>
+        </tr>
+    {% endfor %}
+
+    </table>
+  </body>
+</html>
